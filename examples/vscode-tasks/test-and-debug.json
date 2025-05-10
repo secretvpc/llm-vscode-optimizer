@@ -1,0 +1,5 @@
+{
+  "label": "test and debug",
+  "type": "shell",
+  "command": "pytest && gdb"
+}

@@ -1,0 +1,5 @@
+{
+  "label": "build and run",
+  "type": "shell",
+  "command": "make build && make run"
+}
