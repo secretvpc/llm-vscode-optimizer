@@ -1,5 +1,28 @@
 {
-  "label": "test and debug",
-  "type": "shell",
-  "command": "pytest && gdb"
+  // Task to run unit tests with pytest and optionally launch gdb
+  // Requires: pytest installed, test suite available, and compiled binary for gdb
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "run tests",
+      "type": "shell",
+      "command": "pytest",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": ["$pytest"]
+    },
+    {
+      "label": "launch gdb",
+      "type": "shell",
+      "command": "gdb --args ./bin/app",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
 }

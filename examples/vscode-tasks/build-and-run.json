@@ -1,5 +1,21 @@
 {
-  "label": "build and run",
-  "type": "shell",
-  "command": "make build && make run"
+  // Task to build and run the project using Makefile commands
+  // Requires Makefile with `build` and `run` targets defined
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build and run",
+      "type": "shell",
+      "command": "make build && make run",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
 }
