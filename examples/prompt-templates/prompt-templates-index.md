@@ -24,24 +24,53 @@ Each template includes both a conceptual guide and an operational prompt. Below 
 ### 1. Code Refactoring
 
 **Files:**
-- `code-refactoring-guide.md` — Conceptual overview, structure, examples, and refactoring types.
-- `code-refactoring.md` — Operational prompt for LLMs, focused on applied refactoring of code snippets.
+
+* `code-refactoring-guide.md` — Conceptual overview, structure, examples, and refactoring types.
+* `code-refactoring.md` — Operational prompt for LLMs, focused on applied refactoring of code snippets.
 
 **Description:**
-- Enhances readability and modularity
-- Detects duplication, anti-patterns, and inefficiencies
-- Supports multi-language source inputs
+
+* Enhances readability and modularity
+* Detects duplication, anti-patterns, and inefficiencies
+* Supports multi-language source inputs
 
 ### 2. Documentation Generation
 
 **Files:**
-- `documentation-generation-guide.md` — Explanation of documentation styles, prompt formatting, and usage tips.
-- `documentation-generation.md` — Structured prompt with real example and requirements for docstring generation.
+
+* `documentation-generation-guide.md` — Explanation of documentation styles, prompt formatting, and usage tips.
+* `documentation-generation.md` — Structured prompt with real example and requirements for docstring generation.
 
 **Description:**
-- Generates docstrings, comments, or Markdown/YAML files
-- Can be parameterized by tone, language, or style (e.g., academic, concise)
-- Suitable for codebases lacking inline documentation
+
+* Generates docstrings, comments, or Markdown/YAML files
+* Can be parameterized by tone, language, or style (e.g., academic, concise)
+* Suitable for codebases lacking inline documentation
+
+### 3. Assistant Interaction
+
+**Files:**
+
+* `assistant-interaction.md` — Prompt structures for real-time LLM interaction using ChatGPT Pro+ without API access.
+
+**Description:**
+
+* Interactive use of ChatGPT inside VSCode via extensions
+* Suitable for air-gapped or session-based environments
+* Tasks include refactoring, error explanation, and documentation
+
+### 4. Test Case Generation
+
+**Files:**
+
+* `test-scenarios-guide.md` — Prompt formulation principles, variants, and best practices.
+* `test-scenarios.md` — Template for generating structured test cases from function or module input.
+
+**Description:**
+
+* Produces unit and edge-case tests in pseudocode or target language
+* Enables TDD and integration with CI workflows
+* Highlights invalid inputs and expected exception handling
 
 ---
 
@@ -57,6 +86,7 @@ Each template includes both a conceptual guide and an operational prompt. Below 
 ```
 
 Example:
+
 ```
 documentation-generation-v2.md
 ```

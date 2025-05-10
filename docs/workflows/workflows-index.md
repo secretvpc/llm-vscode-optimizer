@@ -4,7 +4,7 @@ This index provides an overview and direct links to the core workflow modules in
 
 ---
 
-## 📌 Available Workflows
+## Available Workflows
 
 ### 1. [Code Generation](code-generation.md)
 
@@ -30,9 +30,16 @@ Master the craft of writing prompts for deterministic, clear, and reusable LLM i
 * Structural conventions (`TASK`, `CONTEXT`, `OUTPUT`)
 * Before/after transformations
 
----
+### 4. [ChatGPT Pro+ as Assistant](chat-assistant.md)
 
-## 🔗 Usage
+Leverage ChatGPT Pro+ interactively within VSCode, without API access. Applicable for:
+
+* Code refactoring
+* Error explanation
+* Documentation generation
+* Secure, browser-based workflows
+
+---
 
 Each module can be used independently or in combination as part of a professional LLM-augmented development workflow.
 
@@ -40,6 +47,6 @@ To contribute or extend workflows, follow the format and versioning strategy out
 
 ---
 
-📁 Location: `docs/workflows/`
+Location: `docs/workflows/`
 
 Maintained as part of the **LLM + VSCode Optimizer** project.
