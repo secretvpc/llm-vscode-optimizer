@@ -1,35 +1,66 @@
 # Prompt Templates Index
 
-This index summarizes reusable prompt templates for LLM-assisted tasks in the **LLM + VSCode Optimizer** project. Each template is versionable, focused, and designed to maximize the precision and reproducibility of AI output.
+This directory contains versioned, reusable prompt templates designed for deterministic and professional interactions with Large Language Models (LLMs) in the context of software development.
+
+Each template follows a modular structure based on the following format:
+
+```
+TASK:
+  Clearly define the objective of the LLM interaction.
+
+CONTEXT:
+  Provide technical background, code snippets, or system state.
+
+RULES:
+  Outline expected constraints, formatting, or style guidelines.
+```
 
 ---
 
-## 📑 Available Templates
+## Available Templates
 
-### 1. [Code Refactoring](code-refactoring.md)
+Each template includes both a conceptual guide and an operational prompt. Below is a summary of their purpose and application domains.
 
-Prompt template for refactoring functions and modules:
+### 1. Code Refactoring
 
-* Improve naming, modularity, and performance
-* Follows structured TASK + CONTEXT + RULES format
+**Files:**
+- `code-refactoring-guide.md` — Conceptual overview, structure, examples, and refactoring types.
+- `code-refactoring.md` — Operational prompt for LLMs, focused on applied refactoring of code snippets.
 
-### 2. [Documentation Generation](documentation-generation.md)
+**Description:**
+- Enhances readability and modularity
+- Detects duplication, anti-patterns, and inefficiencies
+- Supports multi-language source inputs
 
-Prompt template for auto-generating technical documentation:
+### 2. Documentation Generation
 
-* Supports docstrings, Markdown, YAML, and Bash
-* Includes formatting, tone, and language options
+**Files:**
+- `documentation-generation-guide.md` — Explanation of documentation styles, prompt formatting, and usage tips.
+- `documentation-generation.md` — Structured prompt with real example and requirements for docstring generation.
+
+**Description:**
+- Generates docstrings, comments, or Markdown/YAML files
+- Can be parameterized by tone, language, or style (e.g., academic, concise)
+- Suitable for codebases lacking inline documentation
 
 ---
 
-## 🔧 Usage Guidelines
+## Usage Instructions
 
-* Use one template per task; avoid combining multiple unrelated objectives
-* Modify and save variants using version suffixes (e.g. `refactor-v2.md`, `docgen-cli.md`)
-* Store custom prompt libraries under `examples/prompt-templates/`
+1. Select the most relevant template based on the task category.
+2. Use the guide file for orientation and prompt design rationale.
+3. Use the operational file for direct interaction with LLMs.
+4. When modifying prompts, version them using the following convention:
+
+```
+<base-name>-v<version>.md
+```
+
+Example:
+```
+documentation-generation-v2.md
+```
 
 ---
 
-📁 Location: `examples/prompt-templates/`
-
-Templates maintained as part of the structured AI interaction toolkit in this project.
+For extended workflows, templates can be organized into subdirectories or maintained across branches with documentation for usage scope and intended outcomes.

@@ -1,76 +1,36 @@
 # Prompt Template: Code Refactoring
 
-Use this structured prompt to ask LLMs (e.g., ChatGPT, CodeGPT) to refactor existing code for readability, performance, modularity, or stylistic improvements.
+## TASK
 
----
+Refactor the provided source code to improve readability, modularity, and adherence to standard software engineering principles. Eliminate redundancies, clarify naming conventions, and ensure that the logic remains functionally equivalent.
 
-## 🧱 Prompt Structure
+## CONTEXT
 
-```text
-TASK: Refactor the following code
-CONTEXT:
-<insert code here>
-RULES:
-- Improve readability and naming
-- Remove duplicate logic
-- Follow idiomatic style for language X
-OUTPUT FORMAT: Return only the updated code block
-```
-
----
-
-## 💡 Example
-
-### Input Prompt
-
-```text
-TASK: Refactor the following code
-CONTEXT:
-
-def calc(x):
-    if x == 1:
-        return 3
-    elif x == 2:
-        return 6
-    elif x == 3:
-        return 9
-    else:
-        return 0
-
-RULES:
-- Use dictionary mapping
-- Make function name more descriptive
-```
-
-### Output
+The source code snippet is written in Python and is part of a utility module for file processing. The existing function lacks proper separation of concerns and includes hardcoded parameters.
 
 ```python
-def compute_multiplier(x):
-    return {
-        1: 3,
-        2: 6,
-        3: 9
-    }.get(x, 0)
+def process_files(file_list):
+    for file in file_list:
+        with open(file, 'r') as f:
+            lines = f.readlines()
+        new_lines = []
+        for line in lines:
+            if not line.startswith("#"):
+                new_lines.append(line.strip().lower())
+        with open(file, 'w') as f:
+            for line in new_lines:
+                f.write(line + "\n")
 ```
 
----
+## RULES
 
-## 🔍 Refactoring Types
-
-| Category             | Description                                    |
-| -------------------- | ---------------------------------------------- |
-| Naming               | Rename variables and functions for clarity     |
-| Logic Simplification | Replace nested logic with cleaner alternatives |
-| Performance          | Optimize loops, remove redundant operations    |
-| Modularity           | Extract reusable functions, reduce scope       |
-| Style                | Conform to formatting and idioms               |
+- Use clear, descriptive function and variable names.
+- Separate I/O operations from processing logic.
+- Ensure the code is safe to run in-place on files (overwrite protection).
+- Maintain compatibility with Python 3.8+.
+- Format output using PEP8 standards.
+- Do not introduce external dependencies.
 
 ---
 
-## ✅ Usage Tips
-
-* Focus prompts on a single function or module
-* Include rules only when needed (avoid overloading)
-* Always manually review and test the result
-
-📁 Save reusable prompt templates in `examples/prompt-templates/` with version suffixes (`refactor-v1.md`, `refactor-v2.md`).
+Once the code is refactored, optionally annotate with docstrings and prepare for unit testing.

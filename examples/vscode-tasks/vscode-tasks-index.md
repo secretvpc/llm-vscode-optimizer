@@ -1,37 +1,58 @@
 # VSCode Tasks Index
 
-This index describes and links to reusable VSCode task configurations designed to support common development workflows in the **LLM + VSCode Optimizer** project.
+This directory provides reusable Visual Studio Code task configurations to support automated and consistent workflows in the LLM + VSCode Optimizer project. Each task is defined using the `tasks.json` schema and can be triggered directly from the command palette or as part of a development sequence.
 
 ---
 
-## ⚙️ Available Tasks
+## Task Categories
 
-### 1. [Build and Run](build-and-run.json)
+### 1. Build and Run
 
-* Runs `make build && make run`
-* Requires a Makefile with defined targets
-* Default build task, shared terminal output
+**File:** `build-and-run.json`
 
-### 2. [Test and Debug](test-and-debug.json)
+**Purpose:**
+- Executes a standard build process followed by application startup
+- Relies on `Makefile` targets `build` and `run`
 
-* Executes Python tests via `pytest`
-* Optionally launches `gdb` for debugging compiled binaries
-* Uses `$pytest` problem matcher for test feedback
+**Command:**
+```bash
+make build && make run
+```
 
----
-
-## 📁 Usage Instructions
-
-Include these task files in `.vscode/tasks.json` or load them dynamically using workspace configurations.
-
-You can run tasks via:
-
-* `Ctrl+Shift+P → Run Task`
-* VSCode `Terminal → Run Task`
-* Command-line: `code --task ...`
+**Characteristics:**
+- Uses the `shell` task type
+- Allocates output to a shared terminal panel
+- Can be bound to a shortcut or used as default build task
 
 ---
 
-📁 Location: `examples/vscode-tasks/`
+### 2. Test and Debug
 
-These task definitions aim to accelerate development with clear separation of build, test, and debug logic.
+**File:** `test-and-debug.json`
+
+**Purpose:**
+- Runs Python unit tests using `pytest`
+- Can optionally be extended to invoke a debugger (e.g., `gdb`)
+
+**Command:**
+```bash
+pytest
+```
+
+**Characteristics:**
+- Includes support for the `$pytest` problem matcher
+- Displays structured test results in the terminal
+- Assignable to test task group in VSCode
+
+---
+
+## Usage Instructions
+
+1. Copy the relevant task definition(s) into `.vscode/tasks.json`.
+2. Adjust paths, file names, or commands if your environment differs.
+3. Tasks can be launched via:
+   - `Terminal → Run Task`
+   - `Ctrl+Shift+P → Tasks: Run Task`
+   - Programmatically, using preLaunchTask in `launch.json`
+
+For large projects, group tasks by workspace or add descriptive labels for clarity.

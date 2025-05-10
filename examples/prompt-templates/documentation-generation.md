@@ -1,71 +1,30 @@
 # Prompt Template: Documentation Generation
 
-Use this structured prompt to generate technical documentation for code, scripts, APIs, or workflows using LLMs such as ChatGPT.
+## TASK
 
----
+Generate technical documentation for the given code snippet. The goal is to improve maintainability, support onboarding of new developers, and clarify the purpose, usage, and expected behavior of the code.
 
-## 🧱 Prompt Structure
+## CONTEXT
 
-```text
-TASK: Generate documentation for the following code
-INPUT:
-<insert code here>
-FORMAT: Google-style Python docstring / Markdown section / YAML block / Bash comment block
-TONE: Technical / Beginner-friendly / Concise / Exhaustive
-LANGUAGE: English (or specify another)
-```
-
----
-
-## 💡 Example
-
-### Input Prompt
-
-```text
-TASK: Document the following function
-INPUT:
-
-def add(x, y):
-    return x + y
-FORMAT: Google-style Python docstring
-TONE: Technical
-```
-
-### Output
+The code below implements a utility function for computing the checksum of a file. The logic is functional but lacks explanation and annotations.
 
 ```python
-def add(x, y):
-    """
-    Add two numeric values.
+import hashlib
 
-    Args:
-        x (int | float): First operand.
-        y (int | float): Second operand.
-
-    Returns:
-        int | float: The sum of x and y.
-    """
-    return x + y
+def compute_checksum(filepath):
+    with open(filepath, 'rb') as f:
+        data = f.read()
+    return hashlib.sha256(data).hexdigest()
 ```
 
----
+## RULES
 
-## 📚 Documentation Types
-
-| Type        | Description                                                      |
-| ----------- | ---------------------------------------------------------------- |
-| Docstring   | Inline function/class documentation (e.g. Google, NumPy, PEP257) |
-| Markdown    | Section-based docs for projects or modules                       |
-| Bash/CLI    | Commented scripts or usage headers                               |
-| YAML schema | Metadata or config documentation                                 |
+- Add a docstring for the function using reStructuredText format.
+- Include descriptions for parameters and return values.
+- Describe the algorithm used and potential edge cases.
+- Maintain compatibility with Python 3.x.
+- Do not alter the logic unless a bug is detected.
 
 ---
 
-## ✅ Usage Tips
-
-* Start with simple units (functions, CLI flags, parameters)
-* Be explicit about format and tone
-* Save reusable prompt templates for different languages/tools
-* Pair doc generation with linting (`pydocstyle`, `yamllint`)
-
-📁 Store and version templates in `examples/prompt-templates/` with naming like `docgen-v1.md`, `docgen-cli.md`.
+The output should be a single, annotated code block including the new documentation. Avoid excessive verbosity and align with PEP 257 standards.

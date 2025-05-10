@@ -1,4 +1,27 @@
 {
   "version": "0.2.0",
-  "configurations": []
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Node.js: Launch Program",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/index.js",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Bash: Launch Script",
+      "type": "bashdb",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "terminalKind": "integrated"
+    }
+  ]
 }
