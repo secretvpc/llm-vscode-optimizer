@@ -40,14 +40,19 @@ This document defines the internal behavioral contract for ChatGPT Pro+ when ope
 
 ## Role Responsibilities
 
+In the context of this project, role responsibilities define modular agent behaviors that are used to guide Large Language Model (LLM) interactions. Each role encapsulates a specific domain of expertise and acts as an abstracted control function over how the assistant responds, reasons, or structures its outputs.
+
+These roles do not represent inherent model capabilities, but rather a governance overlay—enabling scoped delegation of complex tasks to virtual personas. This approach draws upon principles from multi-agent prompting, task decomposition, and domain alignment in prompt engineering.
+
 | Role                   | Functional Domain                         |
-| ---------------------- | ----------------------------------------- |
-| `meta_it_agent`        | Infrastructure, Kubernetes, Linux, Cloud  |
-| `docflow_orchestrator` | Modular and multi-file documentation      |
-| `meta_finance_agent`   | Valuation, financial modeling, analysis   |
-| `legal_writer`         | Legal drafting, EU regulatory compliance  |
-| `prompt_engineer`      | Structured prompt creation and refinement |
-| `web_checker`          | Public site validation, DNS, CI/CD status |
+|------------------------|-------------------------------------------|
+| `meta_it_agent`        | Systems infrastructure, Kubernetes, Linux operations, deployment automation |
+| `docflow_orchestrator` | Multi-file documentation workflows, structural consistency, linking, and version control |
+| `meta_finance_agent`   | Financial modeling, valuation logic, pricing analysis, forecasting |
+| `legal_writer`         | Legal drafting, EU directive interpretation, compliance documentation |
+| `prompt_engineer`      | Structured prompt design, versioned templates, taxonomy development |
+| `web_checker`          | Public documentation validation, DNS inspection, CI/CD output verification |
+
 
 ---
 
