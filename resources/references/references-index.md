@@ -1,34 +1,60 @@
-# References Index
+# Reference Index
 
-This index summarizes all curated reference materials used in the **LLM + VSCode Optimizer** project. It includes articles, tools, and extensions that support AI-augmented workflows, prompt engineering, and secure system setup.
+This document provides an overview of curated reference materials that support the **LLM + VSCode Optimizer** project. References are organized into categories relevant to AI-assisted software development, prompt engineering, system integration, and tooling ecosystems.
 
----
-
-## 📚 [Reference Articles](articles.md)
-
-Annotated list of:
-
-* LLM-enhanced development workflows
-* Prompt engineering strategies
-* ChatGPT and VSCode usage patterns
-* OpenAI API guides and configuration management
-
-Each entry includes a direct link and short summary to improve relevance and selection.
+Each category includes annotated resources that align with the project's structure and goals.
 
 ---
 
-## 🛠 [Tools and Extensions](tools.md)
+## Reference Categories
 
-Categorized catalog of tools that support:
+### 1. [Articles](articles.md)
 
-* Editor integration (Copilot, Codeium, CodeGPT)
-* CLI/API clients (OpenAI Python SDK, ShellGPT)
-* Testing and linting (Pydocstyle, Shellcheck, Yamllint)
+Annotated guides and research articles focused on:
 
-Tools are verified and organized by use case, with links to official sources.
+* Prompt engineering techniques
+* AI-assisted development workflows
+* ChatGPT integrations in IDEs (VSCode)
+* OpenAI API usage and security
+
+Use when seeking design rationale, workflow inspiration, or best practice formulation.
+
+### 2. [Tools and Extensions](tools.md)
+
+Classified index of:
+
+* Visual Studio Code extensions for LLM interaction
+* Command-line tools for scripting, testing, and automation
+* Linters and validators for improving code and prompt quality
+
+Use when selecting editor integrations, CLI augmentation tools, or supporting utilities.
 
 ---
 
-📁 Location: `resources/references/`
+## Contribution Model
 
-You are welcome to contribute updates via pull request with verified sources and proper annotation.
+Contributions are accepted in the form of:
+
+* Verified links to reputable sources
+* Annotated summaries explaining relevance
+* GitHub pull requests referencing affected `.md` files
+
+Each entry must:
+
+* Serve an identified developer use case
+* Include a descriptive label
+* Maintain consistent tone and formatting
+
+---
+
+## File Location
+
+Reference materials are located in:
+
+```
+resources/references/
+```
+
+This module complements the project’s `docs/best-practices/` and `examples/prompt-templates/` directories by offering vetted external support.
+
+Maintained as part of the **LLM + VSCode Optimizer** documentation suite.

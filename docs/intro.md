@@ -4,7 +4,7 @@ This guide introduces the setup section of the **LLM + VSCode Optimizer** projec
 
 ---
 
-## 🧭 Purpose
+## Purpose
 
 The `docs/setup/` section ensures reproducible, modular, and secure system preparation across the following layers:
 
@@ -15,7 +15,7 @@ The `docs/setup/` section ensures reproducible, modular, and secure system prepa
 
 ---
 
-## 📁 Setup Modules
+## Setup Modules
 
 ### 1. [Windows 11 + WSL2 + Ubuntu](windows11-wsl2-ubuntu.md)
 
@@ -29,13 +29,13 @@ Install and manage AI-relevant extensions using CLI, JSON, or UI-driven methods.
 
 Set up access to ChatGPT Pro+ (Web and API), including secure key handling and project scoping.
 
-### 4. \[Scripts Overview]
+### 4. [Scripts Overview](scripts-overview.md)
 
-Automation scripts located in `/scripts/` assist with environment provisioning and extensions installation.
+Overview and execution instructions for the setup scripts used to provision Ubuntu (WSL2) and configure the VSCode environment.
 
 ---
 
-## ⚙️ Execution Guidance
+## Execution Guidance
 
 Each module can be run individually or chained together:
 

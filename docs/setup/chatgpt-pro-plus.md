@@ -1,57 +1,56 @@
-# Setup: ChatGPT Pro+
+# ChatGPT Pro+ Configuration Guide
 
-This guide outlines how to configure and use ChatGPT Pro+ accounts in a structured, reproducible, and isolated environment for professional workflows.
-
----
-
-## 1. Overview: ChatGPT Pro+ Access Modes
-
-ChatGPT Pro+ can be accessed in two main ways:
-
-| Mode   | Interface           | Use Case                                                                        |
-| ------ | ------------------- | ------------------------------------------------------------------------------- |
-| Web UI | chat.openai.com     | Direct interaction via browser, best for conversational workflows               |
-| API    | platform.openai.com | Programmatic access via tools or scripts (e.g. CodeGPT, LangChain, custom apps) |
+This document explains how to configure and use ChatGPT Pro+ in both browser and API modes. It supports modular and structured use of LLMs within `llm-vscode-optimizer`, covering authentication, session hygiene, extension integration, and reproducible workflows.
 
 ---
 
-## 2. Isolated Project Sessions (Browser-based)
+## Purpose
 
-To maximize contextual consistency and avoid cross-contamination between tasks:
+To provide a dual-mode strategy for working with ChatGPT Pro+:
 
-* Use a **dedicated browser profile or container** (e.g. Firefox Containers, Chrome Profiles)
-* Pin a tab with `https://chat.openai.com/chat`
-* Structure your sessions with consistent naming (e.g. `llm-vscode-opt-01`, `opt-dev-debug`, etc.)
-* Use internal documentation (e.g. pinned prompt context, conversation structure)
-
-> 🔒 Keep browser plugins minimal to avoid interference.
+* **Browser-based assistant** for live interaction and exploratory tasks
+* **API-based integration** for automated prompts, scripted workflows, and extension support
 
 ---
 
-## 3. API Access & Keys
+## Access Modes
 
-To use ChatGPT via API:
+| Mode   | Interface                     | Use Case                                        |
+| ------ | ----------------------------- | ----------------------------------------------- |
+| Web UI | `https://chat.openai.com`     | Conversational workflows, rapid prototyping     |
+| API    | `https://platform.openai.com` | Programmatic interaction, automation, scripting |
 
-1. Visit [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
-2. Generate a new secret API key.
-3. Export securely in your shell or `.env` file:
+---
+
+## A. Browser-Based Workflow (No API Key Required)
+
+To create reproducible, domain-specific interaction sessions:
+
+1. Use a dedicated browser profile (e.g. Chrome, Firefox Container)
+2. Pin a tab with ChatGPT at `https://chat.openai.com/chat`
+3. Title sessions with structured names (e.g. `opt-debug-session-01`)
+4. Follow prompt scaffolding patterns using `TASK:`, `CONTEXT:`, `RULES:`
+5. Avoid using AI outside scoped workflows
+
+> Recommendation: Limit browser extensions and track session boundaries manually.
+
+---
+
+## B. API-Based Workflow (Structured Automation)
+
+### 1. Generate an API Key
+
+* Go to: [OpenAI API Keys](https://platform.openai.com/account/api-keys)
+* Generate a new secret key
+* Store it securely:
 
 ```bash
 export OPENAI_API_KEY="sk-..."
 ```
 
-Use this with:
+### 2. Use with Extensions (e.g., CodeGPT)
 
-* [CodeGPT extension](https://marketplace.visualstudio.com/items?itemName=DanielSanMedium.dscodegpt)
-* Custom scripts or apps (e.g. via `curl`, `openai` Python client)
-
----
-
-## 4. Integration with VSCode
-
-Recommended integration: **CodeGPT** or **ChatGPT Assistant** extensions.
-
-For `CodeGPT`:
+Example `settings.json` for CodeGPT:
 
 ```json
 {
@@ -61,24 +60,62 @@ For `CodeGPT`:
 }
 ```
 
-Configure this in `.vscode/settings.json` or your VSCode user settings.
+### 3. Use with CLI or Python
+
+```bash
+pip install openai
+```
+
+```python
+import openai
+openai.api_key = os.getenv("OPENAI_API_KEY")
+response = openai.ChatCompletion.create(...)
+```
 
 ---
 
-## 5. Usage Recommendations
+## Integration with Visual Studio Code
 
-* 🧠 Maintain domain-specific sessions (debugging, writing, refactoring)
-* 📁 Store reusable prompts in `examples/prompt-templates/`
-* 📄 Use structured prefixes in prompts (e.g. `TASK:`, `RULES:`, `CONTEXT:`)
+Use one of the following extensions:
 
----
+* [CodeGPT](https://marketplace.visualstudio.com/items?itemName=DanielSanMedium.dscodegpt)
+* [ChatGPT Assistant](https://marketplace.visualstudio.com/items?itemName=gencay.vscode-chatgpt)
 
-## 6. Troubleshooting
-
-* **429 Too Many Requests**: API limits exceeded → use exponential backoff or upgrade plan.
-* **Invalid API key**: Double-check key formatting and shell export.
-* **Web session instability**: Clear cookies or restart containerized session.
+Configure access either via environment variables or extension settings. Use the Command Palette to trigger interaction or sidebar prompts.
 
 ---
 
-By treating ChatGPT Pro+ as a dedicated component in your toolchain—whether via browser or API—you ensure reproducibility, modularity, and maximum productivity.
+## Recommended Practices
+
+* Maintain separation of browser sessions by domain or task category
+* Store structured prompts in `examples/prompt-templates/`
+* Use named sessions and prompt tags for reproducibility
+* Avoid exposing API keys in shell history or config files
+
+---
+
+## Troubleshooting
+
+| Issue                     | Suggested Resolution                                      |
+| ------------------------- | --------------------------------------------------------- |
+| 429 Too Many Requests     | Use exponential backoff or switch to GPT-3.5 for fallback |
+| Invalid API Key           | Regenerate key and ensure proper export or `.env` usage   |
+| Session instability (Web) | Restart browser profile or use an isolated container      |
+
+---
+
+## Location
+
+This document is located at:
+
+```
+docs/setup/chatgpt-pro-plus.md
+```
+
+It complements the following setup modules:
+
+* `vscode-ai-extensions.md`
+* `windows11-wsl2-ubuntu.md`
+* `scripts-overview.md`
+
+ChatGPT Pro+ can be treated as a standalone interface, integrated extension, or backend agent—depending on your workflow model.

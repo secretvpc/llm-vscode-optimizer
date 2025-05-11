@@ -1,101 +1,86 @@
-# Debugging with AI
+# Debugging with AI Workflow
 
-This workflow guide shows how to leverage Large Language Models (LLMs) like ChatGPT to identify, analyze, and resolve bugs more efficiently in a development context.
+This module outlines how to use Large Language Models (LLMs) to assist in identifying, analyzing, and resolving software defects. It defines workflows for capturing error context, formulating prompts, and validating AI-generated fixes.
+
+The approach integrates LLMs such as ChatGPT Pro+ or CodeGPT into development and testing environments.
 
 ---
 
-## 1. Overview
+## Purpose
 
-LLMs can assist developers with:
+To reduce diagnostic effort and improve code quality by using LLMs for:
 
 * Interpreting error messages and stack traces
-* Suggesting likely causes of bugs
-* Recommending code changes to fix errors
-* Explaining edge-case behaviors
-* Detecting anti-patterns in logic or structure
+* Suggesting root causes and code changes
+* Rewriting problematic code snippets for clarity and correctness
 
 ---
 
-## 2. Debugging Workflow with LLMs
+## Debugging Workflow
 
-1. **Reproduce** the issue in a controlled environment
-2. **Capture** the relevant error messages, stack trace, and code block
-3. **Isolate** the minimal code causing the error
-4. **Query** the LLM with a focused prompt
-5. **Apply** recommended changes and retest
-6. **Review** fixes for side effects or regressions
+1. **Reproduce** the issue with minimal steps
+2. **Capture** the error context:
 
----
-
-## 3. Prompt Examples
+   * Stack trace
+   * Input values
+   * Affected code
+3. **Minimize** the code block to isolate the problem
+4. **Formulate** a prompt using structured tags:
 
 ```text
-TASK: Diagnose the following Python error
-CODE:
----
+TASK: Explain and resolve this error
+CONTEXT:
 def divide(x, y):
     return x / y
-
 print(divide(10, 0))
----
 ERROR:
 ZeroDivisionError: division by zero
+RULES:
+- Suggest a fix with error handling
 ```
 
-```text
-TASK: Explain why the loop skips elements
-CODE:
-for i in range(len(arr)):
-    if arr[i] == 0:
-        arr.pop(i)
+5. **Run** the prompt in your preferred LLM interface
+6. **Apply** the fix and retest the scenario
+7. **Review** for regressions or side effects
+
+---
+
+## Common Prompt Patterns
+
+| Scenario                | Prompt Template Snippet                                       |
+| ----------------------- | ------------------------------------------------------------- |
+| Division by zero        | Include trace and logic — request fix with fallback mechanism |
+| List index out of range | Provide loop logic — ask for validation guards                |
+| Infinite loop           | Show condition — ask to suggest break clause                  |
+| Mutating in loop        | Ask to explain skipped elements or index drift                |
+
+---
+
+## Best Practices
+
+* Use focused, minimal code examples in prompts
+* Include exact error output to guide the model
+* Use `TASK`, `CONTEXT`, `RULES` formatting to avoid ambiguity
+* Log before/after states if debugging complex side effects
+
+---
+
+## Integration
+
+* Use with `prompt-templates/code-refactoring.md` for cleanup
+* Supports both browser-based and API-powered LLM tools
+* Debugging outputs can be piped into VSCode tasks or test scripts
+
+---
+
+## Location
+
+```
+docs/workflows/debugging-with-ai.md
 ```
 
-> 🎯 Provide clear, minimal, and focused code + error context
+This module complements:
 
----
-
-## 4. Common Error Types & Patterns
-
-| Type        | Example                                  | LLM Role                          |
-| ----------- | ---------------------------------------- | --------------------------------- |
-| Runtime     | `TypeError`, `KeyError`, `NullReference` | Explain cause, suggest fix        |
-| Logic       | Incorrect result/output                  | Analyze intent vs. implementation |
-| Performance | Inefficient loop, N+1 queries            | Suggest optimization              |
-| Environment | ImportError, Dependency mismatch         | Check version compatibility       |
-
----
-
-## 5. VSCode Integration
-
-Use extensions like:
-
-* **CodeGPT**: inline prompts (e.g. "why does this function fail?")
-* **ChatGPT Assistant**: interactive debugging discussion
-
-You can:
-
-* Select error block → Run prompt
-* Use comment `# debug:` followed by issue description
-
----
-
-## 6. Validation
-
-* ✅ Re-run failing test cases
-* 🔁 Test related modules for regressions
-* 📊 Profile performance after changes
-* 🧪 Add missing edge-case tests
-
----
-
-## 7. Best Practices
-
-* Keep prompts scoped to minimal reproducible examples
-* Include both code and output/error trace
-* Rephrase or refine prompts if responses are generic
-* Avoid over-relying on AI without confirming side effects
-* Document AI-suggested changes in commit messages
-
----
-
-AI-enhanced debugging allows faster iteration and better understanding—but always validate the solution and test comprehensively.
+* `code-generation.md`
+* `prompt-engineering.md`
+* `best-practices/productivity-tips.md`

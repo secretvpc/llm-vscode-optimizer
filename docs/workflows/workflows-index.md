@@ -1,52 +1,61 @@
-# AI-Enhanced Development Workflows
+# Workflow Module Index
 
-This index provides an overview and direct links to the core workflow modules in this project. Each workflow focuses on a practical application of LLMs in the development lifecycle using Visual Studio Code and ChatGPT Pro+.
+This index provides an overview of AI-assisted development workflows included in the **LLM + VSCode Optimizer** project. Each module offers a structured, task-oriented application of Large Language Models (LLMs) in real development contexts using Visual Studio Code.
+
+Workflows are modular, reproducible, and aligned with the prompt engineering standards defined in `examples/prompt-templates/`.
 
 ---
 
-## Available Workflows
+## Included Modules
 
 ### 1. [Code Generation](code-generation.md)
 
-Design and generate high-quality source code using LLMs. Includes:
-
-* Function and module generation
-* Configuration and YAML scaffolding
-* VSCode integration and examples
+* Generates functions, configuration files, or boilerplate code
+* Leverages structured prompting for reproducible scaffolding
+* Supports multi-language output with syntax consistency
 
 ### 2. [Debugging with AI](debugging-with-ai.md)
 
-Use ChatGPT and LLMs to identify, explain, and resolve bugs. Topics include:
-
-* Error interpretation and root cause analysis
-* Structured debug prompts
-* Stack trace reasoning
+* Uses LLMs to identify, explain, and resolve runtime issues
+* Includes workflows for analyzing stack traces and error logs
+* Supports refactoring based on root cause analysis
 
 ### 3. [Prompt Engineering](prompt-engineering.md)
 
-Master the craft of writing prompts for deterministic, clear, and reusable LLM interactions. Features:
-
-* Prompt taxonomy
-* Structural conventions (`TASK`, `CONTEXT`, `OUTPUT`)
-* Before/after transformations
+* Teaches prompt structure and taxonomy: `TASK`, `CONTEXT`, `OUTPUT`
+* Demonstrates before/after prompt refinements
+* Promotes reusable, version-controlled interaction templates
 
 ### 4. [ChatGPT Pro+ as Assistant](chat-assistant.md)
 
-Leverage ChatGPT Pro+ interactively within VSCode, without API access. Applicable for:
-
-* Code refactoring
-* Error explanation
-* Documentation generation
-* Secure, browser-based workflows
+* Describes workflows using browser-based ChatGPT inside VSCode
+* No API key required — relies on sidebar and command palette
+* Suitable for offline or session-based use with structured prompts
 
 ---
 
-Each module can be used independently or in combination as part of a professional LLM-augmented development workflow.
+## Usage Guidance
 
-To contribute or extend workflows, follow the format and versioning strategy outlined in each individual document.
+Each workflow document includes:
+
+* Purpose and role in the dev lifecycle
+* Example prompt scenarios and transformations
+* Recommended extensions and file structure
+
+Use workflows independently or in combination as part of a professional LLM-augmented development pipeline.
 
 ---
 
-Location: `docs/workflows/`
+## File Location
 
-Maintained as part of the **LLM + VSCode Optimizer** project.
+```
+docs/workflows/
+```
+
+This module complements:
+
+* `docs/setup/` — environment preparation
+* `docs/best-practices/` — safe and structured usage patterns
+* `examples/prompt-templates/` — prompt implementation support
+
+Maintained as part of the **LLM + VSCode Optimizer** documentation suite.

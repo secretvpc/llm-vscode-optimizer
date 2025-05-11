@@ -1,72 +1,72 @@
-# Productivity Tips
+# Productivity Tips for AI-Augmented Development
 
-This guide offers actionable, field-tested strategies for using AI to boost individual and team productivity in a software development environment.
+This document presents structured strategies for enhancing developer productivity using Large Language Models (LLMs) within Visual Studio Code environments. The practices address focus management, task structuring, prompt reuse, and AI-powered acceleration of routine operations.
 
----
-
-## 1. Overview
-
-AI productivity is not just about speed—it's about focus, flow, and leverage. Used properly, tools like ChatGPT and VSCode-integrated LLMs can:
-
-* Eliminate repetitive tasks
-* Speed up decision-making
-* Improve writing and coding precision
-* Serve as a second brain during complex work
+The guide is tailored for use with ChatGPT Pro+, CodeGPT, or similar tools integrated through extensions.
 
 ---
 
-## 2. Daily Workflow Patterns
+## Purpose
 
-* 🕐 **Start of Day**: Use ChatGPT to outline daily goals or break down tasks
-* 🧠 **Mental Blocks**: Ask AI to explain, reframe, or reword sticking points
-* 🔁 **End of Day Recap**: Generate summaries or draft commit messages
-* 📋 **Context Transfer**: Copy session context between terminal, editor, and prompt
+To offer reproducible, tool-agnostic practices for applying LLMs in software development workflows with an emphasis on cognitive efficiency, flow maintenance, and structured interaction.
 
 ---
 
-## 3. Coding Productivity Boosters
+## Daily Workflow Patterns
 
-* 💡 Use AI to stub functions, generate test cases, or refactor old code
-* ✂️ Replace boilerplate writing with single-line prompts
-* ⏱ Benchmark: Track time saved vs. time used to assess ROI
-* 🎯 Apply focused prompts (e.g. "Extract constants", "Convert to async")
+| Workflow Phase | LLM Usage Strategy                                              |
+| -------------- | --------------------------------------------------------------- |
+| Start of Day   | Generate task breakdowns, meeting summaries, or goal checklists |
+| Mental Block   | Request explanations, reformulations, or contextual examples    |
+| Midday Refocus | Use prompt templates to resume in-context code writing          |
+| End of Day     | Summarize progress, generate commit messages, or draft reports  |
 
----
-
-## 4. Prompt Efficiency Techniques
-
-* 📦 Reuse templated prompts with placeholders
-* 🏷 Name your prompt versions: `refactor-v1`, `docgen-light`, etc.
-* ✍️ Use structural tags: `TASK`, `INPUT`, `RULES`, `FORMAT`
-* 🔁 Use conversational follow-ups: "Make it more idiomatic", "Add logging"
+Maintain consistency through named prompt snippets and daily rituals.
 
 ---
 
-## 5. Mental Flow Optimization
+## Prompt Efficiency Techniques
 
-* 🧘‍♂️ Reduce cognitive load by using LLMs to externalize memory
-* 🎯 Offload syntax recall and boilerplate
-* 🔁 Switch between high-focus and exploratory modes via AI prompts
-* 🧭 Use AI to quickly validate assumptions or sanity-check logic
-
----
-
-## 6. VSCode-Specific Tips
-
-* ⌨️ Map hotkeys for common AI commands (`Prompt Selection`, `Explain Code`)
-* 📂 Use `.vscode/extensions.json` to load productivity-focused extensions
-* 🧠 Keep a side panel open with ChatGPT or CodeGPT for on-demand help
-* 📌 Use inline comments to trigger AI: `# generate: logging wrapper`
+* Reuse modular prompt blocks with placeholders (`{{function}}`, `{{error}}`)
+* Maintain a local prompt catalog using markdown or JSON
+* Name prompt versions for version control (`docgen-v1`, `refactor-lite`)
+* Apply structural tags: `TASK:`, `CONTEXT:`, `RULES:` to improve determinism
 
 ---
 
-## 7. Best Practices
+## Coding Flow Optimization
 
-* Balance speed with comprehension—review generated content
-* Don’t multitask AI queries—batch them and revisit
-* Archive useful AI interactions for reuse
-* Avoid task-switching; use AI to finish one thing before moving to the next
+* Use LLMs for:
+
+  * Boilerplate generation
+  * Function stubbing
+  * Test case generation
+  * Refactoring and restructuring
+* Minimize context switching by invoking AI in situ (inline or palette-triggered)
+* Track time saved or operations offloaded as productivity metrics
 
 ---
 
-Productivity comes not from using AI constantly, but from using it **strategically**.
+## VSCode Integration Tips
+
+| Feature                     | Usage Recommendation                                             |
+| --------------------------- | ---------------------------------------------------------------- |
+| Command Palette Shortcuts   | Bind frequent AI actions like "Explain Code" or "Refactor Block" |
+| Inline Comments as Triggers | Use tags such as `# generate: docstring` or `# ask: optimize`    |
+| Extensions                  | Configure `.vscode/extensions.json` with productivity enhancers  |
+| Side Panel Utility          | Keep ChatGPT/CodeGPT panel open for ongoing dialogue             |
+
+---
+
+## Best Practices
+
+* Log high-impact LLM prompts and reuse them across sessions
+* Use structured reviews for all generated code or docs
+* Avoid overdependence by interleaving manual review and AI outputs
+* Schedule dedicated "AI blocks" for batch assistance (not ad-hoc multitasking)
+
+---
+
+This guide is part of the `docs/best-practices/` module and complements workflow-specific instructions found in `docs/workflows/` and prompt structures in `examples/prompt-templates/`.
+
+Location: `docs/best-practices/productivity-tips.md`

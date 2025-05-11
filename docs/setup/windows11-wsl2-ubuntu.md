@@ -1,10 +1,27 @@
-# Setup: Windows 11 + WSL2 + Ubuntu
+# Windows 11 + WSL2 + Ubuntu Setup
 
-This guide explains how to configure a Windows 11 system with Windows Subsystem for Linux version 2 (WSL2) using Ubuntu as the preferred distribution. It also covers integration with Visual Studio Code.
+This document outlines how to install and configure the Windows Subsystem for Linux version 2 (WSL2) with Ubuntu on Windows 11. It also covers integration with Visual Studio Code for a complete AI-ready development environment.
 
 ---
 
-## 1. Enable WSL2 and Virtualization Support
+## Purpose
+
+To establish a reproducible Linux-based development layer on Windows systems using WSL2 and Ubuntu 22.04 LTS. This configuration is required for running shell scripts, automation workflows, and integrating LLM tools with Visual Studio Code.
+
+---
+
+## System Requirements
+
+* Windows 11 (Build 22000 or later)
+* Admin access to PowerShell
+* Internet connection for downloading packages
+* Microsoft Store access
+
+---
+
+## Setup Steps
+
+### 1. Enable WSL2 and Virtualization
 
 Open **PowerShell as Administrator** and run:
 
@@ -13,27 +30,27 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
-Then restart your system.
+Then restart your computer.
 
 ---
 
-## 2. Install Ubuntu from the Microsoft Store
+### 2. Install Ubuntu from Microsoft Store
 
-1. Open the **Microsoft Store**.
-2. Search for `Ubuntu 22.04 LTS` (recommended).
-3. Click **Install**.
+1. Open the **Microsoft Store**
+2. Search for `Ubuntu 22.04 LTS`
+3. Click **Install**
 
-After installation, launch Ubuntu and create your user credentials.
+After installation, launch Ubuntu and create your user account.
 
 ---
 
-## 3. Set WSL2 as Default Version
+### 3. Set WSL2 as the Default Version
 
 ```powershell
 wsl --set-default-version 2
 ```
 
-To check WSL version:
+Check with:
 
 ```powershell
 wsl --list --verbose
@@ -41,31 +58,15 @@ wsl --list --verbose
 
 ---
 
-## 4. Integrate with Visual Studio Code
+### 4. Initial Ubuntu System Update
 
-1. Install **[Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)** extension in VSCode.
-2. Launch VSCode.
-3. Open the command palette (`Ctrl+Shift+P`) and run:
-
-   ```
-   ```
-
-Remote-WSL: New Window
-
-````
-4. You are now inside the WSL Ubuntu environment from within VSCode.
-
----
-
-## 5. Initial Ubuntu Setup
-
-Once inside Ubuntu:
+In the Ubuntu terminal:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-````
+```
 
-To install additional packages, you may use:
+Optional: Install developer packages with:
 
 ```bash
 bash scripts/setup-environment.sh
@@ -73,9 +74,32 @@ bash scripts/setup-environment.sh
 
 ---
 
-## 6. Verify from PowerShell
+### 5. Integrate with Visual Studio Code
 
-Run:
+1. Install the **Remote - WSL** extension in VSCode
+2. Launch the Command Palette (`Ctrl+Shift+P`) and select:
+
+```plaintext
+Remote-WSL: New Window
+```
+
+3. This will open a VSCode session attached to the Ubuntu instance
+
+---
+
+## Troubleshooting
+
+| Issue                           | Resolution                                                          |
+| ------------------------------- | ------------------------------------------------------------------- |
+| `wsl` command not found         | Ensure Windows 11 is up to date and restart after enabling features |
+| Cannot install WSL2             | Enable Virtualization in BIOS/UEFI (VT-x/AMD-V)                     |
+| `code .` not working inside WSL | Ensure VSCode is in system PATH and `Remote - WSL` is installed     |
+
+---
+
+## Verification
+
+To verify your setup, run:
 
 ```powershell
 wsl --list --verbose
@@ -83,26 +107,25 @@ wsl --list --verbose
 
 You should see:
 
-```
+```plaintext
 NAME      STATE           VERSION
 Ubuntu    Running         2
 ```
 
 ---
 
-## 7. Troubleshooting
+## Location
 
-* ❗ `wsl` command not found:
+This file is located at:
 
-  * Ensure Windows 11 is fully updated.
-* ❗ Cannot install WSL2:
+```
+docs/setup/windows11-wsl2-ubuntu.md
+```
 
-  * Check BIOS for **Virtualization (Intel VT-x / AMD-V)** and ensure it is enabled.
-* ❗ `code .` not working inside WSL:
+It complements the other setup modules:
 
-  * Ensure `Remote - WSL` extension is installed.
-  * Ensure VSCode is in system `PATH` (via installation options).
+* `vscode-ai-extensions.md`
+* `chatgpt-pro-plus.md`
+* `scripts-overview.md`
 
----
-
-You now have a complete and functional WSL2 development environment ready for AI-enhanced workflows.
+The resulting environment supports all `llm-vscode-optimizer` workflows inside a Linux shell managed from within Windows.

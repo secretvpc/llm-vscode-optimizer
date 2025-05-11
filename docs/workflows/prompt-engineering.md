@@ -1,97 +1,80 @@
-# Prompt Engineering
+# Prompt Engineering Guide
 
-This guide introduces structured methodologies for designing effective prompts when working with Large Language Models (LLMs).
+This module introduces practical methods for designing effective prompts when working with Large Language Models (LLMs). It provides prompt types, structure conventions, and formatting strategies to ensure predictable, reproducible results.
 
----
-
-## 1. What is Prompt Engineering?
-
-Prompt engineering is the craft of designing input text to guide LLMs toward accurate, relevant, and deterministic output. It improves:
-
-* Clarity of model interpretation
-* Control over output format
-* Reusability and consistency
+It underpins all workflows in the **LLM + VSCode Optimizer** project.
 
 ---
 
-## 2. Prompt Types & Use Cases
+## Purpose
 
-| Type        | Description                          | Example                                   |
-| ----------- | ------------------------------------ | ----------------------------------------- |
-| Instruction | Direct task request                  | "Write a bash script to clean temp files" |
-| Completion  | Continue a given text                | "The quick brown fox..."                  |
-| Rewrite     | Rephrase or restructure              | "Summarize this in one sentence:"         |
-| QA          | Ask questions from text or context   | "What are the 3 key benefits?"            |
-| Codegen     | Generate function, module, or config | "Create a YAML for nginx reverse proxy"   |
+To enable precise and structured interaction with LLMs by teaching prompt formulation techniques. This supports clarity, modular reuse, and integration with templates across code generation, debugging, testing, and documentation.
 
 ---
 
-## 3. Prompt Structure
+## Prompt Types and Use Cases
 
-A well-structured prompt should include:
+| Type        | Description                         | Example Prompt                                  |
+| ----------- | ----------------------------------- | ----------------------------------------------- |
+| Instruction | Direct task request                 | "Write a bash script to clean temp files"       |
+| Completion  | Request continuation of input       | "The following API spec describes..."           |
+| Rewrite     | Rephrase or simplify existing input | "Summarize this method in plain English"        |
+| QA          | Ask questions from structured input | "What is the expected output of this function?" |
+| Codegen     | Generate code/config from a spec    | "Create a Dockerfile for a Python Flask app"    |
+
+---
+
+## Prompt Structure
+
+A structured prompt reduces ambiguity and improves reproducibility. The recommended format is:
 
 ```text
-TASK: What you want the model to do
-CONTEXT: Optional background or input data
-CONSTRAINTS: Style, format, scope, limitations
-OUTPUT FORMAT: Desired structure (e.g. JSON, Markdown)
+TASK:
+  Describe the goal clearly.
+
+CONTEXT:
+  Provide source code, configuration, or data.
+
+RULES:
+  Define constraints, output format, or tools to use.
 ```
 
-### Example
+Example:
 
 ```text
-TASK: Generate a Python function to validate email addresses
-CONSTRAINTS:
-- Must use regex
-- Return True/False only
-OUTPUT FORMAT: Python code only
-```
-
----
-
-## 4. Before vs. After Examples
-
-**Before**
-
-```text
-Write code for email validation
-```
-
-**After**
-
-```text
-TASK: Validate email using regex in Python
-OUTPUT: Return True/False only
+TASK: Generate a Python function that parses ISO 8601 timestamps
+CONTEXT: N/A
+RULES: Use `datetime.fromisoformat`; raise exception on failure
 ```
 
 ---
 
-## 5. Principles for Robust Prompt Design
+## Structural Best Practices
 
-* **Clarity**: Remove ambiguity, use explicit constraints
-* **Determinism**: Reduce randomness via structure
-* **Modularity**: Reuse standard prompt components
-* **Layering**: Build from simple to complex tasks
-* **Feedback Loop**: Refine based on model output
-
----
-
-## 6. Tools & Templates
-
-* 📁 `examples/prompt-templates/` – reusable prompt libraries
-* 📄 `.prompt.md` – template format for documentation
-* 🔄 Versioning prompts with `v1`, `v2` suffixes for iterative testing
+* **Use consistent sections** (`TASK`, `CONTEXT`, `RULES`, `OUTPUT`)
+* **Keep prompts declarative** — avoid ambiguous language
+* **Reference models or syntax explicitly** (e.g., “Use Python 3.10+”)
+* **Decompose** complex tasks into smaller sequential prompts
+* **Version** critical prompts with filenames (e.g. `refactor-v2.md`)
 
 ---
 
-## 7. Best Practices
+## Integration with Templates
 
-* Use capitalized section headers (TASK, CONTEXT, etc.)
-* Separate logic and formatting
-* Test prompts on multiple examples
-* Document prompt intent and expected output
-* Use system prompts to set role/persona for multi-turn tasks
+Prompt structures are implemented in:
+
+* `examples/prompt-templates/`
+* `code-generation.md`, `debugging-with-ai.md`
+* `test-scenarios.md`, `assistant-interaction.md`
+
+Use these references to locate ready-to-use prompts for real scenarios.
 
 ---
 
-Prompt engineering bridges human intent and LLM interpretation. Effective prompts yield reliable, reproducible, and high-value outcomes.
+## Location
+
+```
+docs/workflows/prompt-engineering.md
+```
+
+This guide is foundational to all LLM-driven workflows in this project.
