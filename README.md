@@ -125,18 +125,6 @@ Contributions of new references are welcomed with annotated sources.
 
 ---
 
-## Contributing
-
-We welcome contributions in the following areas:
-
-- AI workflow modules and structured use cases
-- Improved or extended prompt templates
-- Reference tools and curated reading lists
-
-All contributions should follow project formatting and structural conventions. Please submit via pull request with explanatory commit messages.
-
----
-
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
