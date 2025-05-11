@@ -103,6 +103,8 @@ Structured documentation is maintained in the `docs/` directory:
 - `setup/` — Environment provisioning modules
 - `best-practices/` — Long-term AI productivity and integration strategies
 - `workflows/` — Hands-on examples for AI-augmented development
+-  `meta/` — Specification and behavioral governance for LLM agent use
+
 
 Each module is self-contained and version-aware.
 
