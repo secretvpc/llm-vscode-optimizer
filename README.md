@@ -1,3 +1,7 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
 # LLM + VSCode Optimizer
 
 > Structured productivity workflows for AI-integrated development environments.
@@ -135,4 +139,4 @@ All contributions should follow project formatting and structural conventions. P
 
 ## License
 
-This project is distributed under the terms of the MIT License. See `LICENSE` for full details.
+This project is licensed under the [MIT License](./LICENSE).
